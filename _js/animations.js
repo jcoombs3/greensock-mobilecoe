@@ -105,7 +105,7 @@ function loadContainers() {
 }
 
 function loadProjects() {
-	TweenMax.to($('#projects li'), 0, {width: ($('#projects ul').outerWidth()*0.23) + 'px'});
+	TweenMax.to($('#projects li'), 0, {width: ($('#projects .container').outerWidth()*0.23) + 'px'});
 	TweenMax.to($('#projects .img'), 0, {top: ($('#projects .content').outerHeight()/2 - $('#projects .img').outerHeight()/2) + 'px'});
 	
 	$('#projects ul').addClass('ease-to-left');
@@ -163,6 +163,13 @@ function checkDevices(li) {
 	}
 	else {
 		TweenMax.to('li.iphone img', 0.2, {top:'300px'});
+	}
+
+	if(li.data('kiosk')){
+		TweenMax.to('li.kiosk img', 0.2, {top:'0'});
+	}
+	else {
+		TweenMax.to('li.kiosk img', 0.2, {top:'300px'});
 	}
 }
 

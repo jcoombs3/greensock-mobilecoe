@@ -326,7 +326,7 @@ h1 {
 
 		li {
 			list-style-type: none;
-			width:33.333%;
+			width:25%;
 			height:100%;
 			float: left;
 			text-align:center;
@@ -368,13 +368,8 @@ h1 {
 			position:relative;
 			text-align:center;
 
-			&:first-child {
-				padding-left:0px;
-			}
-
-			&:last-child {
-				padding-right:0px;
-			}
+			min-width:175px !important;
+			max-width:220px !important;
 
 			&:nth-of-type(3n - 2) .content {
 				background:@li-one;
@@ -455,6 +450,7 @@ h1 {
 	}
 
 	&.expanded {
+		width:100%;
 		height:325px !important;
 
 		#nav-idle {
@@ -465,15 +461,42 @@ h1 {
 		}
 	}
 
+	ul {
+		position:absolute;
+		width:90%;
+	}
+
 	#nav-open {
 		width:100%;
 		height:100%;
 	}
 
 	#nav-close {
-		width:50px;
+		position:absolute;
+		right:0;
+		width:10%;
 		height:100%;
-		background:@ice-white;
+
+		table {
+			width:100%;
+			height:100%;
+
+			tr {
+				width:100%;
+
+				&:first-child, &:last-child {
+					height:2%;
+				}
+
+				&:nth-of-type(3n - 1) {
+					height:96%;
+
+					td {
+						border-left:2px solid @aluminum-gray;
+					}
+				}
+			}
+		}
 	}
 
 	ul {
