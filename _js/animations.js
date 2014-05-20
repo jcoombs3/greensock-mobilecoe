@@ -4,17 +4,21 @@ $(window).load(function(){
 	$('body').addClass('overflow');
 
 	$('#projects li').hover(function(e) {
-		$(e.currentTarget).find('.content').addClass('selected');
-		$(e.currentTarget).find('.load-bar').addClass('selected');
+		$(e.currentTarget).find('.content').addClass('hover');
+		if(!($(e.currentTarget).hasClass('selected'))){
+			$(e.currentTarget).find('.load-bar').addClass('hover');
+		}
 		checkDevices($(e.currentTarget));
 	}, function(e) {
-		$(e.currentTarget).find('.content').removeClass('selected');
-		$(e.currentTarget).find('.load-bar').removeClass('selected');
+		$(e.currentTarget).find('.content').removeClass('hover');
+		$(e.currentTarget).find('.load-bar').removeClass('hover');
 		resetDevices();
 	});
 
 	$('#projects li').on('click', function(e) {
-		stackDeck($(e.currentTarget))
+		stackDeck($(e.currentTarget));
+		$(e.currentTarget).addClass('selected');
+		$(e.currentTarget).find('.load-bar').removeClass('hover');
 	});
 
 	$('#nav-idle').on('click', function(e) {
@@ -108,7 +112,7 @@ function loadContainers() {
 
 function loadProjects() {
 	var width = Math.round($('#projects .container').outerWidth()*0.23);
-	
+
 	TweenMax.to($('#projects li'), 0, {width: width + 'px'});
 	TweenMax.to($('#projects .img'), 0, {top: ($('#projects .content').outerHeight()/2 - $('#projects .img').outerHeight()/2) + 'px'});
 	
