@@ -18,17 +18,12 @@ $(window).load(function(){
 	});
 
 	$('#projects li').on('click', function(e) {
-<<<<<<< HEAD
-		stackDeck($(e.currentTarget), 1);
-		$(e.currentTarget).addClass('selected');
-		$(e.currentTarget).find('.load-bar').removeClass('hover');
-=======
 		if(!$(e.currentTarget).hasClass('selected')){
 			stackDeck($(e.currentTarget));
 			$(e.currentTarget).addClass('selected');
 			$(e.currentTarget).find('.load-bar').removeClass('hover');	
 		}
->>>>>>> FETCH_HEAD
+
 	});
 
 	$('#nav-idle').on('click', function(e) {
@@ -240,13 +235,8 @@ function stackDeck(li, state) {
 		TweenMax.to($(this), .2, aniAttr);
 	});
 
-<<<<<<< HEAD
-	//create "Back to Browse" button
-	//$("#projects").append("<button class = 'back'>BACK TO BROWSE</button>")
-
-=======
 	li.data('zIndex', li.css('zIndex'));
->>>>>>> FETCH_HEAD
+
 	TweenMax.to(li, 0, {zIndex: '50'});
 
 	toggleApp(li);
