@@ -189,9 +189,9 @@ function stackDeck(li) {
 	var selected = li.data('order');
 	var width = $(li).outerWidth();
 	var longestDelay = .15;
-	var centerLeftPos = ($( document ).width()/2.0)-(width/2.0);
-	var centerPos = centerLeftPos - (selected*width);
-	
+	var centerLeftPos = ( $( document ).width() /2.0)-(width/2.0);
+	var centerPos = centerLeftPos - li.offset().left;
+
 	
 	//stack cards
 	$( "#projects li" ).each(function(i){
