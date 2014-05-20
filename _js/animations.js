@@ -1,4 +1,6 @@
 $(window).load(function(){
+	//Number of apps loaded;
+	maxApp = 0;
 	$('body').addClass('overflow');
 
 	$('#projects li').hover(function(e) {
@@ -113,7 +115,7 @@ function loadProjects() {
 		$('#projects ul').removeClass('ease-to-left');
 	}});
 
-	var maxApp = 0;
+	maxApp = 0;
 	$( "#projects li" ).each(function(i){
 		$(this).data('order',i);
 		maxApp++;
@@ -164,7 +166,6 @@ function checkDevices(li) {
 	else {
 		TweenMax.to('li.iphone img', 0.2, {top:'300px'});
 	}
-
 	if(li.data('kiosk')){
 		TweenMax.to('li.kiosk img', 0.2, {top:'0'});
 	}
@@ -182,11 +183,27 @@ function resetDevices(li) {
 function stackDeck(li) {
 	var selected = li.data('order');
 	var width = $('#projects li').outerWidth();
-
+	var longestDelay = .15;
+	var centerLeftPos = ($( document ).width()/2.0)-(width/2.0);
+	var centerPos = centerLeftPos - (selected*width);
+	
+	
+	
+	//stack cards
 	$( "#projects li" ).each(function(i){
 		var moveInteger = selected - $(this).data('order');
-		TweenMax.to($(this), 0.25, {left: ( (width) * moveInteger ) + 'px'})
+		var moveSpeed = .07*Math.abs(moveInteger);
+		var delayTime = longestDelay - (moveInteger/(maxApp- selected)*.15);
+		TweenMax.to($(this), moveSpeed, {left: ( (width) * moveInteger ) + 'px', ease:Sine.easeOut, delay: delayTime} )
 	});
+
+	//move stack to center
+	$( "#projects li" ).each(function(i){
+		var delayTime = longestDelay+ (.07*(maxApp-selected));
+
+		TweenMax.to($(this), .2, {left: "+=" + centerPos+ 'px', ease:Sine.easeOut, delay: delayTime} )
+	});
+
 
 	TweenMax.to(li, 0, {zIndex: '50'});
 }
