@@ -166,7 +166,7 @@ function checkDevices(li) {
 	else {
 		TweenMax.to('li.iphone img', 0.2, {top:'300px'});
 	}
-	
+
 	if(li.data('kiosk')){
 		TweenMax.to('li.kiosk img', 0.2, {top:'0'});
 	}
@@ -176,9 +176,7 @@ function checkDevices(li) {
 }
 
 function resetDevices(li) {
-	TweenMax.to('li.android img', 0.2, {top:'0'});
-	TweenMax.to('li.ipad img', 0.2, {top:'0'});
-	TweenMax.to('li.iphone img', 0.2, {top:'0'});
+	TweenMax.to('li img', 0.2, {top:'0'});
 }
 
 function stackDeck(li) {
