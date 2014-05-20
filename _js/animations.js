@@ -27,8 +27,8 @@ $(window).load(function(){
 		}});
 	});
 
-	fullIntro();
-	//briefIntro();
+	//fullIntro();
+	briefIntro();
 
 });
 
@@ -43,17 +43,17 @@ function briefIntro() {
 	TweenMax.to($('body'), 0, {backgroundColor:'#DFE5E6'});
 	TweenMax.to($('#ribbon'),0,{marginTop:'-'+$('#ribbon').outerHeight()/1.7+'px'});
 	TweenMax.to($('#ribbon .container'),0,{marginLeft:'-'+$('#logo-img').outerWidth()/2+'px'});
-	TweenMax.to($('#logo-img'),0,{opacity:'1', delay:'1', onComplete:intro_moveRibbon});	
-	TweenMax.to($('.anim-ribbon'), 0, {left:'0', onComplete:changeRibbonColor});
+	TweenMax.to($('#logo-img'),0,{opacity:'1', delay:'1'});	
+	TweenMax.to($('.anim-ribbon'), 0, {left:'0'});
 	TweenMax.to($('#logo-img'), 0, {opacity:'0', delay:'0.1'});
 	TweenMax.to($('#logo-text'), 0, {opacity:'1', delay:'0.3'});
 	TweenMax.to($('body'),0,{backgroundColor:'#000'});
-	TweenMax.to($('#ribbon .container'), 0, {left:'90%', delay:'0.1', ease:Back.easeOut, onComplete:intro_animText});
+	TweenMax.to($('#ribbon .container'), 0, {left:'90%', delay:'0.1', ease:Back.easeOut});
 	TweenMax.to($('.anim-ribbon'), 0, {backgroundColor:'#1D1D1D'});
 	TweenMax.to($('#ribbon .everform-paralax'), 0, {opacity:'1'});
 	TweenMax.to($('#ribbon .everform-paralax'), 0, {top:'-50px', repeat:10, yoyo:true});
 	TweenMax.to($('#ribbon .everform-paralax2'), 0, {top:'50px', repeat:10, yoyo:true});
-	TweenMax.to($('#ribbon .text-container'), 0, {delay:'0.6', width:'220px', onComplete:intro_animSubtitle});
+	TweenMax.to($('#ribbon .text-container'), 0, {delay:'0.6', width:'220px'});
 	TweenMax.to($('#ribbon .container'), 0, {left:'75%', delay:'0.6'});
 	TweenMax.to($('#ribbon .everform-paralax2'), 0, {opacity:'1'});	
 	TweenMax.to($('#ribbon'), 0, {marginTop:'0', top:'0%', height:'100px', boxShadow:'0 3px 3px 0px rgba(0, 0, 0, 0.5)'});
