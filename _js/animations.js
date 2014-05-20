@@ -123,7 +123,7 @@ function loadProjects() {
 		maxApp++;
 	});
 
-	TweenMax.to($('#projects ul'), 0, {width: ($('#projects li').outerWidth()*maxApp) + 'px'});
+	TweenMax.to($('#projects ul'), 0, {width: ($('#projects li').outerWidth()*maxApp) + 2 + 'px'});
 
 	changeNav('idle');
 }
@@ -183,11 +183,10 @@ function resetDevices(li) {
 
 function stackDeck(li) {
 	var selected = li.data('order');
-	var width = $('#projects li').outerWidth();
+	var width = $(li).outerWidth();
 	var longestDelay = .15;
 	var centerLeftPos = ($( document ).width()/2.0)-(width/2.0);
 	var centerPos = centerLeftPos - (selected*width);
-	
 	
 	
 	//stack cards
@@ -195,16 +194,29 @@ function stackDeck(li) {
 		var moveInteger = selected - $(this).data('order');
 		var moveSpeed = .07*Math.abs(moveInteger);
 		var delayTime = longestDelay - (moveInteger/(maxApp- selected)*.15);
-		TweenMax.to($(this), moveSpeed, {left: ( (width) * moveInteger ) + 'px', ease:Sine.easeOut, delay: delayTime} )
+		var aniAttr = {left: ( (width) * moveInteger ) + 'px', width: width, ease:Sine.easeOut, delay: delayTime}
+
+		if(moveInteger>0){
+			aniAttr.paddingLeft = '-2px'
+		}
+		else{
+			aniAttr.paddingRight = '-2px'
+		}
+		
+		TweenMax.to($(this), moveSpeed, aniAttr)
 	});
 
 	//move stack to center
 	$( "#projects li" ).each(function(i){
+		var moveInteger = selected - $(this).data('order');
 		var delayTime = longestDelay+ (.07*(maxApp-selected));
+		var paddingPos = Math.abs(2*moveInteger)*-1;
+		var aniAttr = {left: "+=" + centerPos+ 'px', ease:Sine.easeOut, delay: delayTime} 
 
-		TweenMax.to($(this), .2, {left: "+=" + centerPos+ 'px', ease:Sine.easeOut, delay: delayTime} )
+		TweenMax.to($(this), .2, aniAttr)
 	});
 
 
 	TweenMax.to(li, 0, {zIndex: '50'});
 }
+
