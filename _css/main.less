@@ -435,7 +435,7 @@ h1 {
 	left:0;
 	top:50%;
 	background:@electric-blue;
-	z-index:50;
+	z-index:100;
 	overflow:hidden;
 
 	#nav-idle {
@@ -466,9 +466,37 @@ h1 {
 		width:90%;
 	}
 
+	table {
+		width:100%;
+		height:100%;
+	}
+
 	#nav-open {
 		width:100%;
 		height:100%;
+	}
+
+	#nav-links {
+		width:90%;
+		height:100%;
+		float: left;
+
+		tr {
+			width:100%;
+
+			&:first-child, &:last-child {
+				height:25%;
+			}
+
+			&:nth-of-type(3n - 1) {
+				height:50%;
+			}
+		}
+
+		td {
+			text-align:center;
+			vertical-align:middle;
+		}
 	}
 
 	#nav-close {
@@ -477,25 +505,24 @@ h1 {
 		width:10%;
 		height:100%;
 
-		table {
+		tr {
 			width:100%;
-			height:100%;
 
-			tr {
-				width:100%;
+			&:first-child, &:last-child {
+				height:2%;
+			}
 
-				&:first-child, &:last-child {
-					height:2%;
-				}
+			&:nth-of-type(3n - 1) {
+				height:96%;
 
-				&:nth-of-type(3n - 1) {
-					height:96%;
-
-					td {
-						border-left:2px solid @aluminum-gray;
-					}
+				td {
+					border-left:2px solid @aluminum-gray;
 				}
 			}
+		}
+
+		td {
+			text-align:center;
 		}
 	}
 

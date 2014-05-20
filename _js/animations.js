@@ -107,7 +107,9 @@ function loadContainers() {
 }
 
 function loadProjects() {
-	TweenMax.to($('#projects li'), 0, {width: ($('#projects .container').outerWidth()*0.23) + 'px'});
+	var width = Math.round($('#projects .container').outerWidth()*0.23);
+	
+	TweenMax.to($('#projects li'), 0, {width: width + 'px'});
 	TweenMax.to($('#projects .img'), 0, {top: ($('#projects .content').outerHeight()/2 - $('#projects .img').outerHeight()/2) + 'px'});
 	
 	$('#projects ul').addClass('ease-to-left');
@@ -133,7 +135,7 @@ function changeNav(NAV_STATE) {
         case ('expanded'):
         	$('#nav').addClass('expanded');
 			TweenMax.to($('#nav'), 0, {top:$(window).outerHeight()/2 - $('#nav').outerHeight()/2 + 'px', onComplete:function(){
-				TweenMax.to($('#nav'), 0.2, {width:'100%', boxShadow:'0 1px 5px 2px rgba(0, 0, 0, 0.5)'});
+				TweenMax.to($('#nav'), 0.1, {width:'100%', boxShadow:'0 1px 5px 2px rgba(0, 0, 0, 0.5)'});
 			}});
             break;
         case ('idle'):
