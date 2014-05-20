@@ -116,6 +116,7 @@ function loadProjects() {
 	var width = Math.round($('#projects .container').outerWidth()*0.23);
 
 	TweenMax.to($('#projects li'), 0, {width: width + 'px'});
+	TweenMax.to($('#projects .load'), 0, {width: $('#projects li').innerWidth() + 'px', delay:'1'});
 	TweenMax.to($('#projects .img-thumbnail'), 0, {top: ($('#projects .content').outerHeight()/2 - $('#projects .img-thumbnail').outerHeight()/2) + 'px'});
 	
 	$('#projects ul').addClass('ease-to-left');
@@ -216,10 +217,30 @@ function stackDeck(li) {
 			aniAttr.opacity = 0;
 		}
 
-		TweenMax.to($(this), .2, aniAttr)
+		TweenMax.to($(this), .2, aniAttr);
 	});
 
-
+	li.data('zIndex', li.css('zIndex'));
 	TweenMax.to(li, 0, {zIndex: '50'});
+
+	toggleApp(li);
+}
+
+
+function toggleApp(li) {
+
+	setTimeout(function(){
+		if(!li.hasClass('shed')) {
+			li.addClass('shed');
+			TweenMax.to(li.find('.load-container'), 0.2, {width:'100%', onComplete:function() {
+				TweenMax.to(li.find('.shed-bar'), 0.1, {width:'0px'});
+			}});
+		}
+		else {
+			li.removeClass('shed');
+			TweenMax.to(li, 0, {zIndex: '50'}); // fix this
+			TweenMax.to(li.find('.load-container'), 0.5, {width:'0px'});
+		}
+	}, 1500);
 }
 

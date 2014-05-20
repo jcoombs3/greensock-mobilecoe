@@ -235,11 +235,21 @@ h1 {
   -ms-transition: all 1000ms ease;
   -o-transition: all 1000ms ease;
 }
-#projects ul .content .load {
+#projects ul .content .load-container {
+  position: relative;
   top: -100%;
   width: 0px;
+  height: 100%;
   overflow: hidden;
   background: #ffffff;
+}
+#projects ul .content .shed-bar {
+  width: 10px;
+  height: 100%;
+  background: #040707;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 #projects ul .img-thumbnail {
   width: 75px;

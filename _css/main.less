@@ -421,11 +421,22 @@ h1 {
 				.transition(all 1000ms ease);
 			}
 
-			.load {
+			.load-container {
+				position:relative;
 				top:-100%;
 				width:0px;
+				height:100%;
 				overflow:hidden;
 				background:@ice-white;
+			}
+
+			.shed-bar {
+				width:10px;
+				height:100%;
+				background:@piano;
+				position:absolute;
+				right:0;
+				top:0;
 			}
 		}
 
