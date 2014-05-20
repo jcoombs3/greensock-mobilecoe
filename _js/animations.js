@@ -166,6 +166,7 @@ function checkDevices(li) {
 	else {
 		TweenMax.to('li.iphone img', 0.2, {top:'300px'});
 	}
+	
 	if(li.data('kiosk')){
 		TweenMax.to('li.kiosk img', 0.2, {top:'0'});
 	}
