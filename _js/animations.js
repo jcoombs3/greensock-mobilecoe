@@ -18,9 +18,17 @@ $(window).load(function(){
 	});
 
 	$('#projects li').on('click', function(e) {
+<<<<<<< HEAD
 		stackDeck($(e.currentTarget), 1);
 		$(e.currentTarget).addClass('selected');
 		$(e.currentTarget).find('.load-bar').removeClass('hover');
+=======
+		if(!$(e.currentTarget).hasClass('selected')){
+			stackDeck($(e.currentTarget));
+			$(e.currentTarget).addClass('selected');
+			$(e.currentTarget).find('.load-bar').removeClass('hover');	
+		}
+>>>>>>> FETCH_HEAD
 	});
 
 	$('#nav-idle').on('click', function(e) {
@@ -120,6 +128,7 @@ function loadProjects() {
 	var width = Math.round($('#projects .container').outerWidth()*0.23);
 
 	TweenMax.to($('#projects li'), 0, {width: width + 'px'});
+	TweenMax.to($('#projects .load'), 0, {width: $('#projects li').innerWidth() + 'px', delay:'1'});
 	TweenMax.to($('#projects .img-thumbnail'), 0, {top: ($('#projects .content').outerHeight()/2 - $('#projects .img-thumbnail').outerHeight()/2) + 'px'});
 	
 	$('#projects ul').addClass('ease-to-left');
@@ -228,12 +237,36 @@ function stackDeck(li, state) {
 				};
 		}
 
-		TweenMax.to($(this), .2, aniAttr)
+		TweenMax.to($(this), .2, aniAttr);
 	});
 
+<<<<<<< HEAD
 	//create "Back to Browse" button
 	//$("#projects").append("<button class = 'back'>BACK TO BROWSE</button>")
 
+=======
+	li.data('zIndex', li.css('zIndex'));
+>>>>>>> FETCH_HEAD
 	TweenMax.to(li, 0, {zIndex: '50'});
+
+	toggleApp(li);
+}
+
+
+function toggleApp(li) {
+
+	setTimeout(function(){
+		if(!li.hasClass('shed')) {
+			li.addClass('shed');
+			TweenMax.to(li.find('.load-container'), 0.2, {width:'100%', onComplete:function() {
+				TweenMax.to(li.find('.shed-bar'), 0.1, {width:'0px'});
+			}});
+		}
+		else {
+			li.removeClass('shed');
+			TweenMax.to(li, 0, {zIndex: '50'}); // fix this
+			TweenMax.to(li.find('.load-container'), 0.5, {width:'0px'});
+		}
+	}, 1500);
 }
 

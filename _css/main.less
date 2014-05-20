@@ -386,11 +386,7 @@ h1 {
 			&.selected {
 
 				.overview {
-					opacity:0;
-				}
-
-				.load {
-					opacity:1;
+					background:@ice-white;
 				}
 			}
 
@@ -437,10 +433,22 @@ h1 {
 				.transition(all 1000ms ease);
 			}
 
-			.load {
+			.load-container {
+				position:relative;
 				top:-100%;
-				opacity:0;
+				width:0px;
+				height:100%;
+				overflow:hidden;
 				background:@ice-white;
+			}
+
+			.shed-bar {
+				width:10px;
+				height:100%;
+				background:@piano;
+				position:absolute;
+				right:0;
+				top:0;
 			}
 		}
 
@@ -469,6 +477,15 @@ h1 {
 			margin:0 auto;
 			position:relative;
 			top:20%;
+		}
+
+		.load-btn {
+			width:75px;
+			height:75px;
+			background:#f0f;
+			margin:0 auto;
+			position:relative;
+			top:35%;
 		}
 	}
 	.back{
