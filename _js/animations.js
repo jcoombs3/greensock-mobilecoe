@@ -114,7 +114,7 @@ function loadProjects() {
 	var width = Math.round($('#projects .container').outerWidth()*0.23);
 
 	TweenMax.to($('#projects li'), 0, {width: width + 'px'});
-	TweenMax.to($('#projects .img'), 0, {top: ($('#projects .content').outerHeight()/2 - $('#projects .img').outerHeight()/2) + 'px'});
+	TweenMax.to($('#projects .img-thumbnail'), 0, {top: ($('#projects .content').outerHeight()/2 - $('#projects .img-thumbnail').outerHeight()/2) + 'px'});
 	
 	$('#projects ul').addClass('ease-to-left');
 	TweenMax.to($('#projects ul'), 0.8, {left:'0', ease:Back.easeOut, onComplete:function(){
@@ -198,7 +198,6 @@ function stackDeck(li) {
 		var moveInteger = selected - $(this).data('order');
 		var moveSpeed = .07*Math.abs(moveInteger);
 		var delayTime = longestDelay - (moveInteger/(maxApp- selected)*.15);
-		console.log(width*moveInteger);
 		var aniAttr = {left: ( (width) * moveInteger ) + 'px', ease:Sine.easeOut, delay: delayTime}
 
 		TweenMax.to($(this), moveSpeed, aniAttr)
@@ -209,11 +208,7 @@ function stackDeck(li) {
 		var moveInteger = selected - $(this).data('order');
 		var delayTime = longestDelay+ (.07*(maxApp-selected));
 		var paddingPos = Math.abs(2*moveInteger)*-1;
-		var aniAttr = {left: "+=" + centerPos+ 'px', ease:Sine.easeOut, delay: delayTime} 
-		// var hide = function($item){
-		// 	//console.log($(this));
-		// 	$item.fadeOut(1200);
-		// }
+		var aniAttr = {left: "+=" + centerPos+ 'px', ease:Sine.easeOut, delay: delayTime};
 
 		if(moveInteger != 0 ){
 			aniAttr.opacity = 0;
