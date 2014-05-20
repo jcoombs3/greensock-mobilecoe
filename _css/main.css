@@ -188,10 +188,7 @@ h1 {
   max-width: 220px !important;
 }
 #projects ul li.selected .overview {
-  opacity: 0;
-}
-#projects ul li.selected .load {
-  opacity: 1;
+  background: #ffffff;
 }
 #projects ul li:nth-of-type(3n - 2) .content {
   background: #9a9a9b;
@@ -240,7 +237,8 @@ h1 {
 }
 #projects ul .content .load {
   top: -100%;
-  opacity: 0;
+  width: 0px;
+  overflow: hidden;
   background: #ffffff;
 }
 #projects ul .img-thumbnail {
@@ -266,6 +264,14 @@ h1 {
   margin: 0 auto;
   position: relative;
   top: 20%;
+}
+#projects ul .load-btn {
+  width: 75px;
+  height: 75px;
+  background: #f0f;
+  margin: 0 auto;
+  position: relative;
+  top: 35%;
 }
 #nav {
   height: 50px;

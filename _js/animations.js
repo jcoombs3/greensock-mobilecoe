@@ -16,9 +16,11 @@ $(window).load(function(){
 	});
 
 	$('#projects li').on('click', function(e) {
-		stackDeck($(e.currentTarget));
-		$(e.currentTarget).addClass('selected');
-		$(e.currentTarget).find('.load-bar').removeClass('hover');
+		if(!$(e.currentTarget).hasClass('selected')){
+			stackDeck($(e.currentTarget));
+			$(e.currentTarget).addClass('selected');
+			$(e.currentTarget).find('.load-bar').removeClass('hover');	
+		}
 	});
 
 	$('#nav-idle').on('click', function(e) {

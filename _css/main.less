@@ -374,11 +374,7 @@ h1 {
 			&.selected {
 
 				.overview {
-					opacity:0;
-				}
-
-				.load {
-					opacity:1;
+					background:@ice-white;
 				}
 			}
 
@@ -427,7 +423,8 @@ h1 {
 
 			.load {
 				top:-100%;
-				opacity:0;
+				width:0px;
+				overflow:hidden;
 				background:@ice-white;
 			}
 		}
@@ -457,6 +454,15 @@ h1 {
 			margin:0 auto;
 			position:relative;
 			top:20%;
+		}
+
+		.load-btn {
+			width:75px;
+			height:75px;
+			background:#f0f;
+			margin:0 auto;
+			position:relative;
+			top:35%;
 		}
 	}
 }
