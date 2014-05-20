@@ -34,11 +34,23 @@
 	src:url('../_fonts/SapientCentroSlab-XThinItal.otf');
 }
 
+@font-face {
+	font-family: 'SapientSans-Medium';
+	src:url('../_fonts/SPNTSM.ttf');
+}
+
+@font-face {
+	font-family: 'SapientSans-Light';
+	src:url('../_fonts/SPNTSL.ttf');
+}
+
 @sapient-centro-light: 'SapientCentroSlab-Light';
 @sapient-centro-black: 'SapientCentroSlab-Black';
 @sapient-centro-meditalic: 'SapientCentroSlab-MedItalic';
 @sapient-centro-thin: 'SapientCentroSlab-Thin';
 @sapient-centro-xthinitalic: 'SapientCentroSlab-XThinItal';
+@sapient-sans-medium: 'SapientSans-Medium';
+@sapient-sans-light: 'SapientSans-Light';
 
 @navHeight: 100px;
 @section-padding: 35px 45px;
@@ -458,6 +470,18 @@ h1 {
 			position:relative;
 			top:20%;
 		}
+	}
+	.back{
+		position:fixed;
+		right: 30px;
+		bottom: 30px;
+		width: 130px;
+		height:30px;
+		background-color: @electric-blue;
+		border:none;
+		font-family: @sapient-sans-light;
+		color: @ice-white;
+		display: none;
 	}
 }
 
