@@ -1,6 +1,8 @@
 $(window).load(function(){
 	//Number of apps loaded;
 	maxApp = 0;
+	var focusApp;
+
 	$('body').addClass('overflow');
 
 	$('#projects li').hover(function(e) {
@@ -16,11 +18,17 @@ $(window).load(function(){
 	});
 
 	$('#projects li').on('click', function(e) {
+<<<<<<< HEAD
+		stackDeck($(e.currentTarget), 1);
+		$(e.currentTarget).addClass('selected');
+		$(e.currentTarget).find('.load-bar').removeClass('hover');
+=======
 		if(!$(e.currentTarget).hasClass('selected')){
 			stackDeck($(e.currentTarget));
 			$(e.currentTarget).addClass('selected');
 			$(e.currentTarget).find('.load-bar').removeClass('hover');	
 		}
+>>>>>>> FETCH_HEAD
 	});
 
 	$('#nav-idle').on('click', function(e) {
@@ -33,6 +41,10 @@ $(window).load(function(){
 		TweenMax.to($('#nav'), 0.2, {width:'0px', onComplete:function(){
 			changeNav('idle');
 		}});
+	});
+
+	$('.back').on('click', function(e) {
+		stackDeck(focusApp, 0);
 	});
 
 	//fullIntro();
@@ -188,7 +200,9 @@ function resetDevices(li) {
 	TweenMax.to('li img', 0.2, {top:'0'});
 }
 
-function stackDeck(li) {
+function stackDeck(li, state) {
+	focusApp = li;
+	console.log(li);
 	var selected = li.data('order');
 	var width = $(li).outerWidth();
 	var longestDelay = .15;
@@ -216,11 +230,23 @@ function stackDeck(li) {
 		if(moveInteger != 0 ){
 			aniAttr.opacity = 0;
 		}
+		else{
+			aniAttr.onComplete = function(){
+				 $("#projects").append("<button class = 'back'>BACK TO BROWSE</button>");
+				 $(".back").fadeIn();
+				};
+		}
 
 		TweenMax.to($(this), .2, aniAttr);
 	});
 
+<<<<<<< HEAD
+	//create "Back to Browse" button
+	//$("#projects").append("<button class = 'back'>BACK TO BROWSE</button>")
+
+=======
 	li.data('zIndex', li.css('zIndex'));
+>>>>>>> FETCH_HEAD
 	TweenMax.to(li, 0, {zIndex: '50'});
 
 	toggleApp(li);
