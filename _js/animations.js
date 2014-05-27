@@ -258,6 +258,8 @@ function unstackDeck(){
 	var centerLeftPos = ( $( document ).width() /2.0)-(width/2.0);
 	var centerPos = centerLeftPos - originalOffset;
 
+
+	lockApp = false;
 	$(".back").fadeOut();
 
 	//move cards to left
