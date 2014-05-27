@@ -1,7 +1,8 @@
+var focusApp;
+var lockApp = false;
+maxApp = 0;
+
 $(window).load(function(){
-	//Number of apps loaded;
-	maxApp = 0;
-	var focusApp;
 
 	$('body').addClass('overflow');
 
@@ -39,6 +40,10 @@ $(window).load(function(){
 
 	$('.back').on('click', function(e) {
 		stackDeck(focusApp, 0);
+	});
+
+	$('.load-btn').on('click', function(e) {
+		loadApp();
 	});
 
 	//fullIntro();
@@ -161,32 +166,36 @@ function changeNav(NAV_STATE) {
 }
 
 function checkDevices(li) {
-	if(li.data('android')){
-		TweenMax.to('li.android img', 0.2, {top:'0'});
-	}
-	else {
-		TweenMax.to('li.android img', 0.2, {top:'300px'});
-	}
 
-	if(li.data('ipad')){
-		TweenMax.to('li.ipad img', 0.2, {top:'0'});
-	}
-	else {
-		TweenMax.to('li.ipad img', 0.2, {top:'300px'});
-	}
+	/* check if app is locked */
+	if(!lockApp) {
+		if(li.data('android')){
+			TweenMax.to('li.android img', 0.2, {top:'0'});
+		}
+		else {
+			TweenMax.to('li.android img', 0.2, {top:'300px'});
+		}
 
-	if(li.data('iphone')){
-		TweenMax.to('li.iphone img', 0.2, {top:'0'});
-	}
-	else {
-		TweenMax.to('li.iphone img', 0.2, {top:'300px'});
-	}
+		if(li.data('ipad')){
+			TweenMax.to('li.ipad img', 0.2, {top:'0'});
+		}
+		else {
+			TweenMax.to('li.ipad img', 0.2, {top:'300px'});
+		}
 
-	if(li.data('kiosk')){
-		TweenMax.to('li.kiosk img', 0.2, {top:'0'});
-	}
-	else {
-		TweenMax.to('li.kiosk img', 0.2, {top:'300px'});
+		if(li.data('iphone')){
+			TweenMax.to('li.iphone img', 0.2, {top:'0'});
+		}
+		else {
+			TweenMax.to('li.iphone img', 0.2, {top:'300px'});
+		}
+
+		if(li.data('kiosk')){
+			TweenMax.to('li.kiosk img', 0.2, {top:'0'});
+		}
+		else {
+			TweenMax.to('li.kiosk img', 0.2, {top:'300px'});
+		}	
 	}
 }
 
@@ -196,7 +205,7 @@ function resetDevices(li) {
 
 function stackDeck(li, state) {
 	focusApp = li;
-	console.log(li);
+	lockApp = true;
 	var selected = li.data('order');
 	var width = $(li).outerWidth();
 	var longestDelay = .15;
@@ -257,5 +266,9 @@ function toggleApp(li) {
 			TweenMax.to(li.find('.load-container'), 0.5, {width:'0px'});
 		}
 	}, 1500);
+}
+
+function loadApp() {
+	console.log('loading the app');
 }
 
