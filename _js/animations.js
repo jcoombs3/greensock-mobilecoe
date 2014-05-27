@@ -1,7 +1,8 @@
-$(window).load(function(){
+ $(window).load(function(){
 	//Number of apps loaded;
 	maxApp = 0;
 	var focusApp;
+	var originalOffset;
 
 	$('body').addClass('overflow');
 
@@ -38,7 +39,7 @@ $(window).load(function(){
 	});
 
 	$('.back').on('click', function(e) {
-		stackDeck(focusApp, 0);
+		unstackDeck();
 	});
 
 	//fullIntro();
@@ -196,7 +197,7 @@ function resetDevices(li) {
 
 function stackDeck(li, state) {
 	focusApp = li;
-	console.log(li);
+	originalOffset = li.offset().left;
 	var selected = li.data('order');
 	var width = $(li).outerWidth();
 	var longestDelay = .15;
@@ -218,7 +219,6 @@ function stackDeck(li, state) {
 	$( "#projects li" ).each(function(i){
 		var moveInteger = selected - $(this).data('order');
 		var delayTime = longestDelay+ (.07*(maxApp-selected));
-		var paddingPos = Math.abs(2*moveInteger)*-1;
 		var aniAttr = {left: "+=" + centerPos+ 'px', ease:Sine.easeOut, delay: delayTime};
 
 		if(moveInteger != 0 ){
@@ -226,7 +226,6 @@ function stackDeck(li, state) {
 		}
 		else{
 			aniAttr.onComplete = function(){
-				 $("#projects").append("<button class = 'back'>BACK TO BROWSE</button>");
 				 $(".back").fadeIn();
 				};
 		}
@@ -239,6 +238,33 @@ function stackDeck(li, state) {
 	TweenMax.to(li, 0, {zIndex: '50'});
 
 	toggleApp(li);
+}
+
+function unstackDeck(){
+	var selected = focusApp.data('order');
+	var width = focusApp.outerWidth();
+	var longestDelay = .15;
+	var centerLeftPos = ( $( document ).width() /2.0)-(width/2.0);
+	var centerPos = centerLeftPos - originalOffset;
+
+	$(".back").fadeOut();
+
+	//move cards to left
+	$( "#projects li" ).each(function(i){
+		var delayTime = longestDelay+ (.07*(selected));
+		var aniAttr = {left: '-=' + centerPos + 'px', ease:Sine.easeOut, opacity:1};
+
+		TweenMax.to($(this), .2, aniAttr);
+	});
+
+	$( "#projects li" ).each(function(i){
+		var moveInteger =  $(this).data('order')-selected;
+		var moveVal = (moveInteger);
+		var delayTime = .2;
+		var aniAttr = {left: moveVal + 'px', ease:Sine.easeOut, delay: delayTime};	
+		TweenMax.to($(this), .2, aniAttr);
+	});
+
 }
 
 
