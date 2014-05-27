@@ -1,7 +1,7 @@
 
 var focusApp;
 var lockApp = false;
-maxApp = 0;
+var maxApp = 0;
 var originalOffset;
 
 $(window).load(function(){
@@ -168,9 +168,7 @@ function changeNav(NAV_STATE) {
 }
 
 function checkDevices(li) {
-
-	/* check if app is locked */
-	if(!lockApp) {
+	if(!lockApp){
 		if(li.data('android')){
 			TweenMax.to('li.android img', 0.2, {top:'0'});
 		}
@@ -202,7 +200,9 @@ function checkDevices(li) {
 }
 
 function resetDevices(li) {
-	TweenMax.to('li img', 0.2, {top:'0'});
+	if(!lockApp){
+		TweenMax.to('li img', 0.2, {top:'0'});
+	}
 }
 
 function stackDeck(li, state) {
