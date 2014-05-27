@@ -41,7 +41,8 @@ $(window).load(function(){
 	});
 
 	$('.back').on('click', function(e) {
-		unstackDeck();
+		//unstackDeck();
+		toggleApp(focusApp);
 	});
 
 	$('.load-btn').on('click', function(e) {
@@ -238,6 +239,7 @@ function stackDeck(li, state) {
 		else{
 			aniAttr.onComplete = function(){
 				 $(".back").fadeIn();
+				 toggleApp(li);
 				};
 		}
 
@@ -248,7 +250,7 @@ function stackDeck(li, state) {
 
 	TweenMax.to(li, 0, {zIndex: '50'});
 
-	toggleApp(li);
+	//toggleApp(li);
 }
 
 function unstackDeck(){
@@ -283,7 +285,7 @@ function unstackDeck(){
 
 function toggleApp(li) {
 
-	setTimeout(function(){
+
 		if(!li.hasClass('shed')) {
 			li.addClass('shed');
 			TweenMax.to(li.find('.load-container'), 0.2, {width:'100%', onComplete:function() {
@@ -291,14 +293,21 @@ function toggleApp(li) {
 			}});
 		}
 		else {
-			li.removeClass('shed');
-			TweenMax.to(li, 0, {zIndex: '50'}); // fix this
-			TweenMax.to(li.find('.load-container'), 0.5, {width:'0px'});
+			TweenMax.to(li.find('.shed-bar'), 
+						0.1, 
+						{width: '10px',
+							onComplete: function(){
+							TweenMax.to(li.find('.load-container'),
+										0.2, 
+										{width:'0px', onComplete: function(){
+											li.removeClass('shed');
+											li.removeClass('selected');
+											li.find('.load-bar').addClass('hover');
+											unstackDeck();
+										}})}}
+			);
 		}
-	}, 1500);
 }
 
-function loadApp() {
-	console.log('loading the app');
-}
+
 
