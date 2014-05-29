@@ -1,4 +1,4 @@
-[{
+{apps: [{
 	"appName" : "A",
 	"company" : "companyName",
 	"description" : "This is a brief description of an app.  It'll cover basic functionality, maketing impact, awards won, among any other relevent information about the app.",
@@ -254,6 +254,6 @@
 	"data-ipad" : "false",
 	"data-iphone" : "true",
 	"data-kiosk" : "false"
-}]
+}]}
 
 
