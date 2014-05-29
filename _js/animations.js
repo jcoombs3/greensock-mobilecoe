@@ -9,14 +9,14 @@ $(window).load(function(){
 	$('body').addClass('overflow');
 
 	$('#projects li').hover(function(e) {
-		$(e.currentTarget).find('.content').addClass('hover');
+		$(e.currentTarget).find('.overview').addClass('hover');
 		if(!($(e.currentTarget).hasClass('selected'))){
-			$(e.currentTarget).find('.load-bar').addClass('hover');
+			$(e.currentTarget).find('.app-bar').addClass('hover');
 		}
 		checkDevices($(e.currentTarget));
 	}, function(e) {
-		$(e.currentTarget).find('.content').removeClass('hover');
-		$(e.currentTarget).find('.load-bar').removeClass('hover');
+		$(e.currentTarget).find('.overview').removeClass('hover');
+		$(e.currentTarget).find('.app-bar').removeClass('hover');
 		resetDevices();
 	});
 
@@ -24,7 +24,7 @@ $(window).load(function(){
 		if(!$(e.currentTarget).hasClass('selected')){
 			stackDeck($(e.currentTarget));
 			$(e.currentTarget).addClass('selected');
-			$(e.currentTarget).find('.load-bar').removeClass('hover');	
+			$(e.currentTarget).find('.app-bar').removeClass('hover');	
 		}
 	});
 
@@ -46,7 +46,8 @@ $(window).load(function(){
 	});
 
 	$('.load-btn').on('click', function(e) {
-		loadApp();
+		var target = $(e.currentTarget).parents('li');
+		loadApp(target);
 	});
 
 	//fullIntro();
@@ -216,6 +217,8 @@ function stackDeck(li, state) {
 	var centerLeftPos = ( $( document ).width() /2.0)-(width/2.0);
 	var centerPos = centerLeftPos - li.offset().left;
 
+	TweenMax.to(li, 0, {zIndex: '50'});
+
 	
 	//stack cards
 	$( "#projects li" ).each(function(i){
@@ -246,14 +249,10 @@ function stackDeck(li, state) {
 		TweenMax.to($(this), .2, aniAttr);
 	});
 
-	li.data('zIndex', li.css('zIndex'));
-
-	TweenMax.to(li, 0, {zIndex: '50'});
-
 	//toggleApp(li);
 }
 
-function unstackDeck(){
+function unstackDeck(li){
 	var selected = focusApp.data('order');
 	var width = focusApp.outerWidth();
 	var longestDelay = .15;
@@ -279,6 +278,8 @@ function unstackDeck(){
 		var aniAttr = {left: moveVal + 'px', ease:Sine.easeOut, delay: delayTime};	
 		TweenMax.to($(this), .2, aniAttr);
 	});
+
+	TweenMax.to(li, 0, {zIndex: '0'});
 }
 
 
@@ -299,14 +300,13 @@ function toggleApp(li) {
 							{width:'0px', onComplete: function(){
 								li.removeClass('shed');
 								li.removeClass('selected');
-								unstackDeck();
+								unstackDeck(li);
 							}})}}
 		);
 	}
 }
 
-function loadApp() {
-	console.log('loading app');
+function loadApp(li) {
 }
 
 
