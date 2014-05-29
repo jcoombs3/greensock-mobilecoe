@@ -213,9 +213,10 @@ function stackDeck(li, state) {
 	originalOffset = li.offset().left;
 	var selected = li.data('order');
 	var width = $(li).outerWidth();
-	var longestDelay = .15;
+	var longestDelay = 1.05/maxApp;
 	var centerLeftPos = ( $( document ).width() /2.0)-(width/2.0);
 	var centerPos = centerLeftPos - li.offset().left;
+	var initMoveSpeed = .6/maxApp;
 
 	TweenMax.to(li, 0, {zIndex: '50'});
 
@@ -223,7 +224,7 @@ function stackDeck(li, state) {
 	//stack cards
 	$( "#projects li" ).each(function(i){
 		var moveInteger = selected - $(this).data('order');
-		var moveSpeed = .07*Math.abs(moveInteger);
+		var moveSpeed = initMoveSpeed*Math.abs(moveInteger);
 		var delayTime = longestDelay - (moveInteger/(maxApp- selected)*.15);
 		var aniAttr = {left: ( (width) * moveInteger ) + 'px', ease:Sine.easeOut, delay: delayTime}
 
@@ -233,7 +234,7 @@ function stackDeck(li, state) {
 	//move stack to center
 	$( "#projects li" ).each(function(i){
 		var moveInteger = selected - $(this).data('order');
-		var delayTime = longestDelay+ (.07*(maxApp-selected));
+		var delayTime = longestDelay+ (.035*(maxApp-selected));
 		var aniAttr = {left: "+=" + centerPos+ 'px', ease:Sine.easeOut, delay: delayTime};
 
 		if(moveInteger != 0 ){
