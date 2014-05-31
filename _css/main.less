@@ -458,10 +458,9 @@ h1 {
 			}
 
 			.load-anim-container {
-				height:50px; /*change this*/
+				height:0px;
 				width:100%;
 				position:absolute;
-				background:#f0f;
 				bottom:0;
 
 				.load-bar {
@@ -470,6 +469,14 @@ h1 {
 					background:@sapient-heat;
 					position:absolute;
 					top:0;
+				}
+
+				.load-anim {
+					height:100%;
+					background:@electric-blue;
+					opacity:0.3;
+					position:relative;
+					top:10px;
 				}
 			}
 		}

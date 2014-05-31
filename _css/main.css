@@ -266,12 +266,9 @@ h1 {
   top: 0;
 }
 #projects ul .content .load-anim-container {
-  height: 50px;
-  /*change this*/
-
+  height: 0px;
   width: 100%;
   position: absolute;
-  background: #f0f;
   bottom: 0;
 }
 #projects ul .content .load-anim-container .load-bar {
@@ -280,6 +277,13 @@ h1 {
   background: #d32728;
   position: absolute;
   top: 0;
+}
+#projects ul .content .load-anim-container .load-anim {
+  height: 100%;
+  background: #21addd;
+  opacity: 0.3;
+  position: relative;
+  top: 10px;
 }
 #projects ul .img-thumbnail {
   width: 75px;

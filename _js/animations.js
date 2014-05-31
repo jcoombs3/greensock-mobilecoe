@@ -9,15 +9,19 @@ $(window).load(function(){
 	$('body').addClass('overflow');
 
 	$('#projects li').hover(function(e) {
-		$(e.currentTarget).find('.overview').addClass('hover');
-		if(!($(e.currentTarget).hasClass('selected'))){
-			$(e.currentTarget).find('.app-bar').addClass('hover');
+		if(!lockApp){
+			$(e.currentTarget).find('.overview').addClass('hover');
+			if(!($(e.currentTarget).hasClass('selected'))){
+				$(e.currentTarget).find('.app-bar').addClass('hover');
+			}
+			checkDevices($(e.currentTarget));		
 		}
-		checkDevices($(e.currentTarget));
 	}, function(e) {
-		$(e.currentTarget).find('.overview').removeClass('hover');
-		$(e.currentTarget).find('.app-bar').removeClass('hover');
-		resetDevices();
+		if(!lockApp){
+			$(e.currentTarget).find('.overview').removeClass('hover');
+			$(e.currentTarget).find('.app-bar').removeClass('hover');
+			resetDevices();
+		}
 	});
 
 	$('#projects li').on('click', function(e) {
@@ -279,7 +283,7 @@ function unstackDeck(li){
 		TweenMax.to($(this), .2, aniAttr);
 	});
 
-	TweenMax.to(li, 0, {zIndex: '0'});
+	TweenMax.to(li, 0, {delay:'2', zIndex: '0'});
 }
 
 
@@ -307,6 +311,23 @@ function toggleApp(li) {
 }
 
 function loadApp(li) {
+	lockApp = true;
+	loadAnim = li.find('.load-anim-container');
+	loadBtn = li.find('.load-btn');
+
+	TweenMax.to(loadBtn, 1, {opacity:'0', onComplete:function(){
+		li.find('.app-bar').addClass('hover');
+		TweenMax.to(loadAnim, 3, {delay:'2', height:'100%', top:'-10px', onComplete:function(){
+			console.log('yay');
+			resetApp(li, loadAnim, loadBtn);
+		}});
+	}});
+}
+
+function resetApp(li, loadAnim, loadBtn) {
+	li.find('.app-bar').removeClass('hover');
+	TweenMax.to(loadBtn, 0, {opacity:'1'});
+	TweenMax.to(loadAnim, 0, {height:'0px', top:'100%'});
 }
 
 
