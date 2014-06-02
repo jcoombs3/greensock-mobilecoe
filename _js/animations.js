@@ -319,7 +319,6 @@ function loadApp(li) {
 	TweenMax.to(loadBtn, 1, {opacity:'0', onComplete:function(){
 		li.find('.app-bar').addClass('hover');
 		TweenMax.to(loadAnim, 3, {delay:'2', height:'100%', top:'-10px', onComplete:function(){
-			console.log('yay');
 			resetApp(li, loadAnim, loadBtn);
 		}});
 	}});
