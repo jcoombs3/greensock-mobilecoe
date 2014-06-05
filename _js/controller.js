@@ -8,7 +8,8 @@ var data = {apps: [{
 	"dataAndroid" : "true",
 	"dataIpad" : "false",
 	"dataIphone" : "false",
-	"dataKiosk" : "false"
+	"dataKiosk" : "false",
+	"brandColor" : '#996666'
 },
 
 {
@@ -18,7 +19,8 @@ var data = {apps: [{
 	"dataAndroid" : "false",
 	"dataIpad" : "true",
 	"dataIphone" : "true",
-	"dataKiosk" : "true"
+	"dataKiosk" : "true",
+	"brandColor" : '#CC6633'
 },
 
 {
@@ -28,7 +30,8 @@ var data = {apps: [{
 	"dataAndroid" : "true",
 	"dataIpad" : "false",
 	"dataIphone" : "true",
-	"dataKiosk" : "false"
+	"dataKiosk" : "false",
+	"brandColor" : '#003333'
 },
 
 {
@@ -38,7 +41,8 @@ var data = {apps: [{
 	"dataAndroid" : "true",
 	"dataIpad" : "false",
 	"dataIphone" : "false",
-	"dataKiosk" : "true"
+	"dataKiosk" : "true",
+	"brandColor" : '#0066FF'
 },
 
 
@@ -49,7 +53,8 @@ var data = {apps: [{
 	"dataAndroid" : "false",
 	"dataIpad" : "true",
 	"dataIphone" : "false",
-	"dataKiosk" : "false"
+	"dataKiosk" : "false",
+	"brandColor" : "#993300"
 },
 
 
@@ -60,7 +65,8 @@ var data = {apps: [{
 	"dataAndroid" : "false",
 	"dataIpad" : "false",
 	"dataIphone" : "true",
-	"dataKiosk" : "false"
+	"dataKiosk" : "false",
+	"brandColor" : '#33CCCC'
 },
 
 {
@@ -70,7 +76,8 @@ var data = {apps: [{
 	"dataAndroid" : "true",
 	"dataIpad" : "true",
 	"dataIphone" : "true",
-	"dataKiosk" : "true"
+	"dataKiosk" : "true",
+	"brandColor" : '#0066FF'
 },
 
 
@@ -81,7 +88,8 @@ var data = {apps: [{
 	"dataAndroid" : "false",
 	"dataIpad" : "false",
 	"dataIphone" : "true",
-	"dataKiosk" : "false"
+	"dataKiosk" : "false",
+	"brandColor" : '#993300'
 },
 
 
@@ -92,7 +100,8 @@ var data = {apps: [{
 	"dataAndroid" : "false",
 	"dataIpad" : "true",
 	"dataIphone" : "true",
-	"dataKiosk" : "true"
+	"dataKiosk" : "true",
+	"brandColor" : '#33CCCC'
 },
 
 
@@ -103,7 +112,8 @@ var data = {apps: [{
 	"dataAndroid" : "false",
 	"dataIpad" : "true",
 	"dataIphone" : "false",
-	"dataKiosk" : "false"
+	"dataKiosk" : "false",
+	"brandColor" : '#006699'
 },
 
 
@@ -114,7 +124,8 @@ var data = {apps: [{
 	"dataAndroid" : "true",
 	"dataIpad" : "false",
 	"dataIphone" : "true",
-	"dataKiosk" : "true"
+	"dataKiosk" : "true",
+	"brandColor" : '#33CCCC'
 },
 
 
@@ -125,7 +136,8 @@ var data = {apps: [{
 	"dataAndroid" : "false",
 	"dataIpad" : "true",
 	"dataIphone" : "false",
-	"dataKiosk" : "false"
+	"dataKiosk" : "false",
+	"brandColor" : '#CC6633'
 },
 
 
@@ -136,7 +148,8 @@ var data = {apps: [{
 	"dataAndroid" : "true",
 	"dataIpad" : "false",
 	"dataIphone" : "false",
-	"dataKiosk" : "false"
+	"dataKiosk" : "false",
+	"brandColor" : '#0066FF'
 },
 
 
@@ -147,7 +160,8 @@ var data = {apps: [{
 	"dataAndroid" : "true",
 	"dataIpad" : "false",
 	"dataIphone" : "true",
-	"dataKiosk" : "false"
+	"dataKiosk" : "false",
+	"brandColor" : '#993300'
 },
 {
 	"appName" : "O",
@@ -156,7 +170,8 @@ var data = {apps: [{
 	"dataAndroid" : "true",
 	"dataIpad" : "true",
 	"dataIphone" : "false",
-	"dataKiosk" : "false"
+	"dataKiosk" : "false",
+	"brandColor" : '#FFFFCC'
 },
 {
 	"appName" : "P",
@@ -165,7 +180,8 @@ var data = {apps: [{
 	"dataAndroid" : "false",
 	"dataIpad" : "true",
 	"dataIphone" : "true",
-	"dataKiosk" : "true"
+	"dataKiosk" : "true",
+	"brandColor" : '#006699'
 },
 {
 	"appName" : "Q",
@@ -174,7 +190,8 @@ var data = {apps: [{
 	"dataAndroid" : "true",
 	"dataIpad" : "false",
 	"dataIphone" : "false",
-	"dataKiosk" : "false"
+	"dataKiosk" : "false",
+	"brandColor" : "#CC99FF"
 },
 {
 	"appName" : "R",
@@ -183,7 +200,8 @@ var data = {apps: [{
 	"dataAndroid" : "false",
 	"dataIpad" : "true",
 	"dataIphone" : "false",
-	"dataKiosk" : "true"
+	"dataKiosk" : "true",
+	"brandColor" : '#FFFFCC'
 },
 {
 	"appName" : "S",
@@ -192,7 +210,8 @@ var data = {apps: [{
 	"dataAndroid" : "true",
 	"dataIpad" : "false",
 	"dataIphone" : "true",
-	"dataKiosk" : "true"
+	"dataKiosk" : "true",
+	"brandColor" : '#CC6633'
 },
 {
 	"appName" : "T",
@@ -201,7 +220,8 @@ var data = {apps: [{
 	"dataAndroid" : "true",
 	"dataIpad" : "true",
 	"dataIphone" : "true",
-	"dataKiosk" : "false"
+	"dataKiosk" : "false",
+	"brandColor" : "#FF3333"
 },
 {
 	"appName" : "U",
@@ -210,7 +230,8 @@ var data = {apps: [{
 	"dataAndroid" : "false",
 	"dataIpad" : "false",
 	"dataIphone" : "false",
-	"dataKiosk" : "false"
+	"dataKiosk" : "false",
+	"brandColor" : '#006699'
 },
 {
 	"appName" : "V",
@@ -219,7 +240,8 @@ var data = {apps: [{
 	"dataAndroid" : "false",
 	"dataIpad" : "false",
 	"dataIphone" : "true",
-	"dataKiosk" : "true"
+	"dataKiosk" : "true",
+	"brandColor" : "#0066FF"
 },
 {
 	"appName" : "W",
@@ -228,7 +250,8 @@ var data = {apps: [{
 	"dataAndroid" : "true",
 	"dataIpad" : "true",
 	"dataIphone" : "false",
-	"dataKiosk" : "false"
+	"dataKiosk" : "false",
+	"brandColor" : '#0066FF'
 },
 {
 	"appName" : "X",
@@ -237,7 +260,8 @@ var data = {apps: [{
 	"dataAndroid" : "true",
 	"dataIpad" : "false",
 	"dataIphone" : "true",
-	"dataKiosk" : "false"
+	"dataKiosk" : "false",
+	"brandColor" : '#FF3333'
 },
 {
 	"appName" : "Y",
@@ -246,7 +270,8 @@ var data = {apps: [{
 	"dataAndroid" : "false",
 	"dataIpad" : "true",
 	"dataIphone" : "false",
-	"dataKiosk" : "true"
+	"dataKiosk" : "true",
+	"brandColor" : '#003333'
 },
 {
 	"appName" : "Z",
@@ -255,7 +280,8 @@ var data = {apps: [{
 	"dataAndroid" : "true",
 	"dataIpad" : "false",
 	"dataIphone" : "true",
-	"dataKiosk" : "false"
+	"dataKiosk" : "false",
+	"brandColor" : '#CC99FF'
 }]}
 
 
@@ -266,7 +292,7 @@ Handlebars.registerHelper('list', function(items, options) {
   var out = "<ul>";
 
   for(var i=0, l=items.length; i<l; i++) {
-    out = out + "<li data-android = '" + items[i].dataAndroid + " ' data-ipad = '"+items[i].dataIpad+"' data-iphone = ' "+items[i].dataIphone+"' data-kiosk = '"+items[i].dataKiosk + "'><div class='app-bar'> </div> <div class='content'> <div class='app'><div class='overview'><div class='img img-thumbnail'> </div> <div class='title'> </div> </div> <div class='load-container'> <div class='load'> <div class='img img-enlarge'> </div> <div class='btn load-btn'></div> </div><div class='shed-bar'> </div>  <div class='load-anim-container'> <div class='load-bar'> </div> <div class='load-anim'></div></div> </div>  </div></div></li>";
+    out = out + "<li data-android = '" + items[i].dataAndroid + " ' data-ipad = '"+items[i].dataIpad+"' data-iphone = ' "+items[i].dataIphone+"' data-kiosk = '"+items[i].dataKiosk + "'><div class='app-bar'> </div> <div class='content'> <div class='app'><div class='overview'><div class='img img-thumbnail'> </div> <div class='title'> </div> </div> <div class='load-container'> <div class='load'> <div class='icon icon-ribbon' style='color:" + items[i].brandColor + ";'></div> <div class='img img-enlarge'> </div> <div class='btn load-btn'></div> </div><div class='shed-bar'> </div>  <div class='load-anim-container'> <div class='load-bar'> </div> <div class='load-anim'></div></div> </div>  </div></div></li>";
   }
 
   return out + "</ul>";

@@ -54,8 +54,8 @@ $(window).load(function(){
 		loadApp(target);
 	});
 
-	//fullIntro();
-	briefIntro();
+	fullIntro();
+	//briefIntro();
 
 });
 
@@ -230,7 +230,7 @@ function stackDeck(li, state) {
 		var moveInteger = selected - $(this).data('order');
 		var moveSpeed = initMoveSpeed*Math.abs(moveInteger);
 		var delayTime = longestDelay - (moveInteger/(maxApp- selected)*.15);
-		var aniAttr = {left: ( (width) * moveInteger ) + 'px', ease:Sine.easeOut, delay: delayTime}
+		var aniAttr = {left: ( (width) * moveInteger ) + 'px', ease:Sine.easeOut, delay: delayTime};
 
 		TweenMax.to($(this), moveSpeed, aniAttr)
 	});
@@ -291,8 +291,11 @@ function unstackDeck(li){
 function toggleApp(li) {
 	if(!li.hasClass('shed')) {
 		li.addClass('shed');
+
+		TweenMax.to(li.find('.icon-ribbon'), 0, {x:'-300px'});
 		TweenMax.to(li.find('.load-container'), 0.2, {width:'100%', onComplete:function() {
 			TweenMax.to(li.find('.shed-bar'), 0.1, {width:'0px'});
+			TweenMax.to(li.find('.icon-ribbon'), 0.5, {x:'0'});
 		}});
 	}
 	else {
@@ -316,9 +319,16 @@ function loadApp(li) {
 	loadAnim = li.find('.load-anim-container');
 	loadBtn = li.find('.load-btn');
 
+	var tempColor = li.find('.icon-ribbon').css('color');
+
+	$('#appPDV').css('background',tempColor);
+	$('.load-anim').css('background', tempColor);
+
 	TweenMax.to(loadBtn, 1, {opacity:'0', onComplete:function(){
 		li.find('.app-bar').addClass('hover');
-		TweenMax.to(loadAnim, 3, {delay:'2', height:'100%', top:'-10px', onComplete:function(){
+		TweenMax.to(loadAnim, 3, {delay:'2', height:'100%', top:'-10px'});
+
+		TweenMax.to('#appPDV', 3, {delay:'2.5', opacity:'1', onComplete:function(){
 			resetApp(li, loadAnim, loadBtn);
 		}});
 	}});
@@ -326,8 +336,22 @@ function loadApp(li) {
 
 function resetApp(li, loadAnim, loadBtn) {
 	li.find('.app-bar').removeClass('hover');
-	TweenMax.to(loadBtn, 0, {opacity:'1'});
-	TweenMax.to(loadAnim, 0, {height:'0px', top:'100%'});
+	TweenMax.to(loadBtn, 0, {delay:'2', opacity:'1'});
+	TweenMax.to(loadAnim, 0, {delay:'2', height:'0px', top:'100%'});
+
+	showLoadedApp(li);
+}
+
+function showLoadedApp(li) {
+	$('#appPDV').addClass('enabled');
+	TweenMax.to('#appPDV', 0.5, {height:'100%', onComplete:function(){	
+		toggleApp(li);
+		unstackDeck(li);
+	}});
+
+	TweenMax.from('#main-title', 1.5, {opacity:'0', marginTop:'100px', onComplete:function(){
+		$('#heading .scroll-container').addClass('enabled');
+	}});
 }
 
 

@@ -168,15 +168,71 @@ h1 {
   position: relative;
 }
 #appPDV {
-  height: 230px;
   width: 100%;
+  height: 330px;
   overflow: hidden;
   overflow-y: auto;
-  background: #f0f;
+  background: #21addd;
   position: absolute;
+  z-index: 100;
   top: 0;
-  padding-top: 100px;
+  opacity: 0;
   border-bottom: 1px solid #ffffff;
+}
+#appPDV #padding-heading {
+  height: 330px;
+  width: 100%;
+}
+#appPDV #heading {
+  width: 100%;
+}
+#appPDV #heading #main-logo {
+  width: 150px;
+  height: 150px;
+  background: #ffffff;
+  margin: 0 auto;
+}
+#appPDV #heading #main-title {
+  height: 100px;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+}
+#appPDV #heading #main-title h1 {
+  font-size: 65px;
+}
+#appPDV .fullscreen {
+  height: 100%;
+}
+#appPDV .scroll-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+}
+#appPDV .scroll-container.enabled {
+  opacity: 1;
+  bottom: 45px;
+}
+#appPDV .scroll-container .arrow {
+  width: 50px;
+  height: 50px;
+  background: #ffffff;
+  margin: 0 auto;
+}
+#appPDV .slider {
+  width: 100%;
+  height: 450px;
+  background: #dfe5e6;
+  border-left: none;
+  border-right: none;
+}
+#appPDV #back-to-top {
+  height: 100px;
 }
 #projects .container {
   height: 100%;
@@ -276,6 +332,11 @@ h1 {
   right: 0;
   top: 0;
 }
+#projects ul .content .icon.icon-ribbon {
+  position: absolute;
+  top: 8%;
+  font-size: 265px;
+}
 #projects ul .content .load-anim-container {
   height: 0px;
   width: 100%;
@@ -347,7 +408,7 @@ h1 {
   left: 0;
   top: 50%;
   background: #21addd;
-  z-index: 100;
+  z-index: 200;
   overflow: hidden;
 }
 #nav #nav-idle {
@@ -433,3 +494,16 @@ h1 {
   height: 2px;
 }
 /*-----------------------------------*/
+/*Landscape Mode*/
+@media screen and (max-device-width: 480px) {
+  #devices .container {
+    height: 130px;
+  }
+  #appPDV {
+    height: 230px;
+  }
+}
+/* Portrait Mode */
+@media screen and (max-device-width: 320px) {
+  
+}
