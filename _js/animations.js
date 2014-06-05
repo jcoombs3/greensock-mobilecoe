@@ -47,6 +47,8 @@ $(window).load(function(){
 	$('.back').on('click', function(e) {
 		//unstackDeck();
 		toggleApp(focusApp);
+		lockApp = false; 
+		resetDevices();
 	});
 
 	$('.load-btn').on('click', function(e) {
@@ -54,8 +56,8 @@ $(window).load(function(){
 		loadApp(target);
 	});
 
-	fullIntro();
-	//briefIntro();
+	//fullIntro();
+	briefIntro();
 
 });
 
